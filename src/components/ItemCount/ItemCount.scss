@@ -1,0 +1,26 @@
+.Counter{
+    padding: 0px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 150px
+
+  }
+
+.Controls{
+    padding: 10px 0;
+    display: flex;
+    margin: auto;
+    justify-content:space-between;
+}
+
+.Botton{
+    padding: 10px 0;
+
+
+}
+
+.Number{
+    padding: 5px;
+    margin: 5px;
+}

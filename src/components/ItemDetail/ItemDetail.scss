@@ -1,0 +1,24 @@
+
+.cardItemDetail {
+    display: inline-block;
+    max-width: 400px; /* Puedes ajustar el ancho máximo según tus necesidades */
+    margin: 10px; 
+    
+  }
+
+.item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.itemHeader{
+    font-size: medium;
+    text-align: center;
+
+}
+
+.cardText{
+    font-size: small;
+    text-align: left;
+}

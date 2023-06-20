@@ -1,0 +1,11 @@
+.navbar_cart_container {
+    display: flex;
+    align-items: center;
+
+    .navbar_cart_img {
+      width: 50px; /* Ajusta el tamaño según tu necesidad */
+      height: 50px;
+      margin-right: 10px; /* Ajusta el espacio entre el logo imagen y el logo escrito */
+
+    }
+}
