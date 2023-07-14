@@ -17,6 +17,7 @@ const products = [
       price: 1800,
       category: "Oficios",
       img: '/src/assets/images/albanileria.png',
+      stock: 18,
       description: "Conviértete en un albañil confiado y capacitado. Descubre cómo construir estructuras sólidas y duraderas.",
       link: "https://drive.google.com/drive/folders/1HkOj2K1KtvOOY7lZGLfmWotbwZXYzhxO?hl=es",
     },
