@@ -1,0 +1,31 @@
+.itemImg {
+    width: 50px; 
+    height: 50px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+  }
+
+  .custom-form-control {
+    margin-top: 10px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    align-content: center;
+  }
+
+  .cartItem{
+    align-items: center;
+  }
+  .cart-item-container {
+    
+    margin: auto; 
+    margin-top: 10px;
+    width: 400px; 
+    align-items: center;
+    align-content: center;
+  }
+  
+  .fontCartItem {
+    color: blue;
+    font-size: large;
+  }

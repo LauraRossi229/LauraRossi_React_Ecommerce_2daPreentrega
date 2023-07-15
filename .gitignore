@@ -1,0 +1,19 @@
+# Node.js dependencies
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Environment files
+.env
+
+# Log files
+*.log
+
+# Firebase configuration files (if applicable)
+src/firebaseConfig.js
+
+# Visual Studio Code specific files
+.vscode/
+*.code-workspace

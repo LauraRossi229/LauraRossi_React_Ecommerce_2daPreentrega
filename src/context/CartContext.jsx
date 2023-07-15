@@ -1,40 +1,57 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 export const CartContext = createContext({
   cart: [],
-  totalQuantity: 0, // Agregar totalQuantity al contexto
+  totalQuantity: 0,
+  total: 0
 });
-
-// ...
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
-  // Agregar la variable totalQuantity y calcular su valor en el estado
   const [totalQuantity, setTotalQuantity] = useState(0);
-
-  console.log(cart);
+  const [total, setTotal] = useState(0);
 
   const addItem = (item, quantity) => {
     if (!isInCart(item.id)) {
-      setCart((prev) => [...prev, { ...item, quantity }]);
-      setTotalQuantity((prevQuantity) => prevQuantity + quantity); // Actualizar totalQuantity
+      const newItem = { ...item, quantity };
+      setCart((prev) => [...prev, newItem]);
+      setTotalQuantity((prevQuantity) => prevQuantity + quantity);
+      setTotal((prevTotal) => prevTotal + item.price * quantity);
     } else {
       console.error("El producto ya fue agregado");
     }
   };
 
   const removeItem = (itemId) => {
-    const cartUpdated = cart.filter((prod) => prod.id !== itemId);
-    setCart(cartUpdated);
-
     const itemToRemove = cart.find((prod) => prod.id === itemId);
-    setTotalQuantity((prevQuantity) => prevQuantity - itemToRemove.quantity); // Actualizar totalQuantity
+
+    if (itemToRemove) {
+      const cartUpdated = cart.filter((prod) => prod.id !== itemId);
+      setCart(cartUpdated);
+      setTotalQuantity((prevQuantity) => prevQuantity - itemToRemove.quantity);
+      setTotal((prevTotal) => prevTotal - itemToRemove.price * itemToRemove.quantity);
+    }
+  };
+
+  const updateQuantity = (itemId, newQuantity) => {
+    const itemToUpdate = cart.find((prod) => prod.id === itemId);
+
+    if (itemToUpdate) {
+      const cartUpdated = cart.map((prod) =>
+        prod.id === itemId ? { ...prod, quantity: newQuantity } : prod
+      );
+
+      setCart(cartUpdated);
+      const quantityDifference = newQuantity - itemToUpdate.quantity;
+      setTotalQuantity((prevQuantity) => prevQuantity + quantityDifference);
+      setTotal((prevTotal) => prevTotal + itemToUpdate.price * quantityDifference);
+    }
   };
 
   const clearCart = () => {
     setCart([]);
-    setTotalQuantity(0); // Restablecer totalQuantity a cero
+    setTotalQuantity(0);
+    setTotal(0);
   };
 
   const isInCart = (itemId) => {
@@ -43,7 +60,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, addItem, removeItem, clearCart, totalQuantity }} // Incluir totalQuantity en el valor del contexto
+      value={{ cart, addItem, removeItem, updateQuantity, clearCart, totalQuantity, total }}
     >
       {children}
     </CartContext.Provider>

@@ -10,11 +10,11 @@ const Item = ({ id, name, img, price, stock }) => {
         <Card.Header className='Header'>
           <h2 className='itemHeader'>{name}</h2>
         </Card.Header>
-        <Card.Img variant='top' src={img} alt={name} className='itemImg' />
+        <Card.Img variant='top' src={img} alt={name} />
         <Card.Body>
           <Card.Text className='cardText'>Precio: ${price}</Card.Text>
-          <Card.Text className='cardText'>Stock disponible: {stock}</Card.Text>
-          <Link to={`/item/${id}`} className='Option'>Ver detalle</Link>
+          <Card.Text className='cardText'>Cupos disponibles: {stock}</Card.Text>
+          <Link to={`/item/${id}`} className='btn btn-primary Option'>Ver detalle</Link>
         </Card.Body>
       </Card>
     </div>

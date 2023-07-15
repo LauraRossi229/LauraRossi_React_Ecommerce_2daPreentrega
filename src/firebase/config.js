@@ -1,21 +1,24 @@
-// Import the functions you need from the SDKs you need
+// Importar las funciones necesarias de los SDK que necesitas
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getFirestore} from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-
+// Configuración de Firebase de tu aplicación web
 const firebaseConfig = {
-  apiKey: "AIzaSyDCHu0cZq9Rivjf5gv1h9VNj7nAuqt2lkA",
-  authDomain: "ecommerce-planetprodigital.firebaseapp.com",
-  projectId: "ecommerce-planetprodigital",
-  storageBucket: "ecommerce-planetprodigital.appspot.com",
-  messagingSenderId: "753544123905",
-  appId: "1:753544123905:web:a67e70b8f137d562ce9200",
-  measurementId: "G-VZ68M69W4P"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const db = getFirestore(app)
+const db = getFirestore(app);
+
+export default db;
+
+

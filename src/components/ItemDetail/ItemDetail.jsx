@@ -29,13 +29,13 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
           <h2 className='itemHeader'>{name}</h2>
         </Card.Header>
 
-        <Card.Img variant='top' src={img} alt={name} className='itemImg img-thumbnail' />
+        <Card.Img variant='top' src={img} alt={name} />
 
         <Card.Body>
           <Card.Text className='cardText'>Categoria: {category}</Card.Text>
           <Card.Text className='cardText'>Descripción: {description}</Card.Text>
           <Card.Text className='cardText'>Precio: ${price}</Card.Text>
-          <Card.Text className='cardText'>Stock disponible: {stock}</Card.Text>
+          <Card.Text className='cardText'>Cupos disponibles: {stock}</Card.Text>
 
           <div className='d-flex justify-content-center'>
             {quantityAdded > 0 ? (

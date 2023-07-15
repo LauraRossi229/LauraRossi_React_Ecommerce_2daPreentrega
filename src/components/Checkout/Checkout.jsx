@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Container, Button } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import { Timestamp, writeBatch, doc, collection, addDoc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase/config";
+import db from "../../firebase/config";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 const Checkout = () => {

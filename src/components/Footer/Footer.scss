@@ -1,0 +1,35 @@
+.blue-footer {
+   
+    color: blue;
+    padding: 0px;
+    margin-top: 20px;
+   // position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    p {
+        margin: 0;
+        padding: 10px 0;
+      }
+    
+      a {
+        color: blue;
+        text-decoration: none;
+    
+        &:hover {
+          text-decoration: underline;
+        }
+  }}
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 30%;
+   
+  }
+  
+  .row:last-child {
+    margin-top: auto;
+  }
+  
