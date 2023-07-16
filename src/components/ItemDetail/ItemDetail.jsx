@@ -24,18 +24,22 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
   return (
     <div className='item'>
+     
       <Card bg='light' className='cardItemDetail mb-3'>
         <Card.Header className='Header'>
+     
           <h2 className='itemHeader'>{name}</h2>
         </Card.Header>
 
         <Card.Img variant='top' src={img} alt={name} />
 
         <Card.Body>
+        
           <Card.Text className='cardText'>Categoria: {category}</Card.Text>
           <Card.Text className='cardText'>Descripción: {description}</Card.Text>
           <Card.Text className='cardText'>Precio: ${price}</Card.Text>
           <Card.Text className='cardText'>Cupos disponibles: {stock}</Card.Text>
+       
 
           <div className='d-flex justify-content-center'>
             {quantityAdded > 0 ? (
@@ -45,6 +49,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             )}
           </div>
         </Card.Body>
+        {stock === 0 && (
+          <Card.Footer className='text-center bg-danger'>
+              <span className='text-white fs-8'>Agotado</span>
+          </Card.Footer>
+          )}
       </Card>
     </div>
   );
