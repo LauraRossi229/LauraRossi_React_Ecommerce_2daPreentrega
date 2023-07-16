@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import { Container, Button } from "react-bootstrap";
 import { CartContext } from "../../context/CartContext";
 import { Timestamp, writeBatch, doc, collection, addDoc, getDoc } from "firebase/firestore";
-import db from "../../firebase/config";
+
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { db } from "../../firebase/Config";
+import './Checkout.scss'
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -12,6 +14,12 @@ const Checkout = () => {
   const { cart, total, clearCart } = useContext(CartContext);
 
   const createOrder = async ({ name, phone, email }) => {
+    if (!name || !phone || !email) {
+      // Validar que todos los campos estén completos
+      alert("Por favor, complete todos los campos del formulario.");
+      return;
+    }
+
     setLoading(true);
     try {
       const objOrder = {
@@ -71,8 +79,8 @@ const Checkout = () => {
   };
 
   const handleExit = () => {
-    // Cerrar la página
-    window.close();
+    
+    window.location.href = "/";
   };
 
   if (loading) {
@@ -85,10 +93,10 @@ const Checkout = () => {
         <h1>Orden generada exitosamente</h1>
         <p>El ID de su orden es: {orderId}</p>
         <p>¿Desea salir o continuar con su compra?</p>
-        <Button variant="primary" onClick={handleExit}>
+        <Button variant="primary" className="mt-2 boton"  onClick={handleExit}>
           Salir
         </Button>
-        <Button variant="secondary" onClick={handleContinueShopping}>
+        <Button variant="secondary" className="mt-2 boton" onClick={handleContinueShopping}>
           Continuar comprando
         </Button>
       </Container>
